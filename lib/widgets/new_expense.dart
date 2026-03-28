@@ -41,6 +41,7 @@ class _NewExpenseState extends State<NewExpense> {
             maxLength: 50,
             decoration: InputDecoration(
               label: Text('Amount'),
+              prefixText: '\$ ',
             ),
             keyboardType: TextInputType.number,
           ),
@@ -55,7 +56,7 @@ class _NewExpenseState extends State<NewExpense> {
                 child: Text('Save Expense'),
               ),
               SizedBox(width: 20),
-              ElevatedButton(
+              TextButton(
                 onPressed: () {
                   print('cancel');
                   Navigator.pop(context);
