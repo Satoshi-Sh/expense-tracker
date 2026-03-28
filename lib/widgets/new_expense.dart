@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 
 class NewExpense extends StatefulWidget {
-  const NewExpense(this.context, {super.key});
-
-  final BuildContext context;
+  const NewExpense({super.key});
 
   @override
   State<NewExpense> createState() {
@@ -38,7 +36,6 @@ class _NewExpenseState extends State<NewExpense> {
           ),
           TextField(
             controller: _amountController,
-            maxLength: 50,
             decoration: InputDecoration(
               label: Text('Amount'),
               prefixText: '\$ ',
@@ -47,6 +44,13 @@ class _NewExpenseState extends State<NewExpense> {
           ),
           Row(
             children: [
+              TextButton(
+                onPressed: () {
+                  print('cancel');
+                  Navigator.pop(context);
+                },
+                child: Text('Cancel'),
+              ),
               ElevatedButton(
                 onPressed: () {
                   print(
@@ -56,13 +60,6 @@ class _NewExpenseState extends State<NewExpense> {
                 child: Text('Save Expense'),
               ),
               SizedBox(width: 20),
-              TextButton(
-                onPressed: () {
-                  print('cancel');
-                  Navigator.pop(context);
-                },
-                child: Text('Cancel'),
-              ),
             ],
           ),
         ],
