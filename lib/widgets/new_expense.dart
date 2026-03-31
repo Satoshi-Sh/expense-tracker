@@ -4,8 +4,7 @@ import 'package:expense_tracker/models/expense.dart';
 class NewExpense extends StatefulWidget {
   const NewExpense(this.addExpense, {super.key});
 
-  final Function(String title, double amount, DateTime date, Category category)
-  addExpense;
+  final Function(Expense) addExpense;
 
   @override
   State<NewExpense> createState() {
@@ -61,10 +60,12 @@ class _NewExpenseState extends State<NewExpense> {
       return;
     }
     widget.addExpense(
-      _titleController.text.trim(),
-      enteredAmount,
-      _selectedDate!,
-      _selectedCategory,
+      Expense(
+        title: _titleController.text.trim(),
+        amount: enteredAmount,
+        date: _selectedDate!,
+        category: _selectedCategory,
+      ),
     );
     Navigator.pop(context);
   }

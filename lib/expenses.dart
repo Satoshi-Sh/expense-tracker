@@ -27,22 +27,10 @@ class _ExpensesState extends State<Expenses> {
     ),
   ];
 
-  void addExpense(
-    String title,
-    double amount,
-    DateTime date,
-    Category category,
-  ) {
-    final newExpense = Expense(
-      title: title,
-      amount: amount,
-      date: date,
-      category: category,
-    );
+  void addExpense(Expense expense) {
     setState(() {
-      _registeredExpenses.add(newExpense);
+      _registeredExpenses.add(expense);
     });
-    return;
   }
 
   void _openExpenseOverlay() {
